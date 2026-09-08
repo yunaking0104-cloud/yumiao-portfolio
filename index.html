@@ -3,155 +3,159 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#111111">
+<meta name="theme-color" content="#f7f4ef">
 <title>Yumiao Bao · HRBP × AI-HR × Organisation</title>
 <meta name="description" content="Yumiao Bao — Global HRBP, AI-HR and organisation.">
 <style>
 :root{
-  --ink:#111111;--paper:#f4f1eb;--cream:#fffaf1;--acid:#cfff3d;
-  --lilac:#d8ccff;--sky:#cceeff;--pink:#ffd9e6;--muted:#77736b;
-  --line:rgba(17,17,17,.13);--radius:34px;
+  --ink:#191919;--paper:#f7f4ef;--card:#fffdf9;--line:rgba(25,25,25,.12);
+  --muted:#726e68;--lime:#dff36a;--lav:#e8e0ff;--sky:#dff2ff;--mint:#dff0e6;--peach:#ffe7d9;
+  --shadow:0 24px 70px rgba(42,36,28,.08);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--paper)}
-body{margin:0;color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:
-radial-gradient(circle at 12% 10%,rgba(216,204,255,.55),transparent 24%),
-radial-gradient(circle at 88% 84%,rgba(204,238,255,.55),transparent 25%),
-var(--paper);overflow-x:hidden}
+body{margin:0;color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--paper);overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 button{font:inherit}
-#progress{position:fixed;left:0;top:0;height:4px;background:var(--acid);width:0;z-index:1000}
-nav{position:fixed;z-index:100;top:18px;left:50%;transform:translateX(-50%);width:min(1180px,calc(100% - 28px));display:flex;align-items:center;justify-content:space-between;padding:11px 13px 11px 18px;border:1px solid rgba(17,17,17,.12);border-radius:999px;background:rgba(255,250,241,.72);backdrop-filter:blur(18px);box-shadow:0 12px 42px rgba(0,0,0,.06)}
+#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#b9d94c,#9bc8ff,#c7b5ff);width:0;z-index:1000}
+nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:100;width:min(1180px,calc(100% - 28px));display:flex;justify-content:space-between;align-items:center;padding:11px 13px 11px 18px;border:1px solid var(--line);border-radius:999px;background:rgba(255,253,249,.76);backdrop-filter:blur(18px);box-shadow:0 12px 36px rgba(0,0,0,.05)}
 .brand{font-weight:950;letter-spacing:-.04em}
-.nav-right{display:flex;align-items:center;gap:8px}
-.nav-pill{padding:9px 13px;border-radius:999px;font-size:13px;font-weight:800}
-.nav-pill:hover{background:#111;color:#fff}
-.nav-cta{padding:10px 15px;border-radius:999px;background:#111;color:#fff;font-weight:900;font-size:13px}
-.scroll-shell{scroll-snap-type:y proximity}
-.panel{min-height:100svh;position:relative;display:flex;align-items:center;scroll-snap-align:start;scroll-snap-stop:normal;padding:110px max(24px,calc((100vw - 1180px)/2)) 54px}
+.nav-right{display:flex;gap:6px;align-items:center}
+.nav-link{padding:9px 12px;border-radius:999px;font-size:13px;font-weight:800}
+.nav-link:hover{background:#191919;color:#fff}
+.nav-cta{padding:10px 15px;border-radius:999px;background:#191919;color:#fff;font-size:13px;font-weight:900}
+.panel{min-height:100svh;display:flex;align-items:center;position:relative;padding:112px max(22px,calc((100vw - 1180px)/2)) 58px;scroll-margin-top:30px;overflow:hidden}
 .panel-inner{width:100%;max-width:1180px;margin:auto}
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
 .kicker{font-size:12px;text-transform:uppercase;letter-spacing:.16em;font-weight:950;color:var(--muted)}
-.hero{overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center}
-.hero-copy{position:relative;z-index:2}
-.hero h1{font-size:clamp(72px,9.6vw,150px);line-height:.82;letter-spacing:-.075em;margin:20px 0 24px;max-width:880px}
+.soft-note{font-size:13px;color:var(--muted);font-style:italic}
+.section-title{font-size:clamp(54px,7.8vw,108px);line-height:.92;letter-spacing:-.065em;margin:10px 0 0}
+.decor-star{position:absolute;font-size:34px;opacity:.55}
+.decor-dot{position:absolute;width:12px;height:12px;border-radius:50%;opacity:.75}
+.squiggle{width:110px;height:28px;margin-top:18px}
+.squiggle path{fill:none;stroke:#191919;stroke-width:2;stroke-linecap:round;opacity:.45}
+
+/* HERO */
+.hero{background:
+radial-gradient(circle at 13% 16%,rgba(232,224,255,.85),transparent 27%),
+radial-gradient(circle at 88% 82%,rgba(223,242,255,.8),transparent 26%),
+var(--paper)}
+.hero-grid{display:grid;grid-template-columns:1.13fr .87fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(72px,9.7vw,150px);line-height:.84;letter-spacing:-.075em;margin:18px 0 26px}
 .hero h1 span{display:block}
-.hero h1 .accent-line{color:#111;position:relative;width:max-content;max-width:100%}
-.hero h1 .accent-line:after{content:"";position:absolute;left:2%;right:2%;bottom:-4px;height:16px;background:var(--acid);z-index:-1;transform:rotate(-1.5deg);border-radius:8px}
-.hero-sub{font-size:clamp(19px,2vw,27px);line-height:1.45;max-width:760px;color:#34322e}
-.hero-meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:26px}
-.tag{padding:10px 14px;border:1px solid #111;border-radius:999px;font-size:13px;font-weight:900;background:rgba(255,255,255,.55);backdrop-filter:blur(8px)}
-.tag:nth-child(2){background:var(--acid)}
-.tag:nth-child(3){background:var(--sky)}
-.photo-stage{position:relative;min-height:620px;display:flex;align-items:center;justify-content:center}
-.photo-card{width:min(420px,92%);padding:12px;border-radius:42px;background:var(--cream);border:1px solid var(--line);transform:rotate(2.5deg);box-shadow:0 34px 90px rgba(37,31,24,.17);position:relative}
-.photo-card img{width:100%;height:auto;display:block;border-radius:32px;aspect-ratio:700/951;object-fit:cover;object-position:center 32%}
-.sticker{position:absolute;padding:12px 16px;border:1px solid #111;border-radius:999px;font-weight:950;font-size:13px;box-shadow:0 8px 0 rgba(17,17,17,.08)}
-.sticker.one{right:-28px;top:42px;background:var(--acid);transform:rotate(8deg)}
-.sticker.two{left:-26px;bottom:56px;background:var(--sky);transform:rotate(-8deg)}
-.orbit{position:absolute;width:520px;height:520px;border:1px dashed rgba(17,17,17,.18);border-radius:50%;animation:spin 20s linear infinite}
-.orbit:before,.orbit:after{content:"";position:absolute;width:14px;height:14px;border-radius:50%;background:#111}
-.orbit:before{top:40px;left:90px}.orbit:after{right:24px;bottom:150px;background:var(--acid);border:1px solid #111}
-@keyframes spin{to{transform:rotate(360deg)}}
-.scroll-cue{position:absolute;bottom:28px;left:max(24px,calc((100vw - 1180px)/2));display:flex;gap:12px;align-items:center;font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-.mouse{width:24px;height:36px;border:1px solid #111;border-radius:16px;position:relative}.mouse:after{content:"";width:4px;height:8px;background:#111;border-radius:2px;position:absolute;left:9px;top:7px;animation:wheel 1.5s infinite}
-@keyframes wheel{0%{transform:translateY(0);opacity:1}100%{transform:translateY(11px);opacity:0}}
+.hero h1 .future{width:max-content;position:relative;max-width:100%}
+.hero h1 .future:after{content:"";position:absolute;left:1%;right:1%;bottom:-6px;height:14px;background:var(--lime);border-radius:8px;z-index:-1;transform:rotate(-1deg)}
+.hero-sub{font-size:clamp(19px,2vw,27px);line-height:1.5;max-width:760px;color:#393633}
+.hero-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:25px}
+.tag{padding:10px 14px;border:1px solid #191919;border-radius:999px;font-size:13px;font-weight:900;background:rgba(255,255,255,.65)}
+.tag:nth-child(2){background:var(--mint)}.tag:nth-child(3){background:var(--sky)}
+.photo-wrap{display:flex;justify-content:center;align-items:center;position:relative}
+.photo-frame{position:relative;width:min(410px,92%);padding:10px;background:#fff;border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow)}
+.photo-frame img{display:block;width:100%;height:auto;aspect-ratio:700/951;object-fit:cover;object-position:center 32%;border-radius:22px}
+.photo-caption{display:flex;justify-content:space-between;gap:14px;padding:12px 6px 4px;font-size:12px;font-weight:800;color:var(--muted)}
+.micro-chip{position:absolute;padding:10px 13px;border:1px solid #191919;border-radius:999px;font-size:12px;font-weight:950;box-shadow:0 8px 20px rgba(0,0,0,.05)}
+.micro-chip.a{right:-20px;top:52px;background:var(--lime)}
+.micro-chip.b{left:-22px;bottom:80px;background:var(--sky)}
+.scroll-cue{position:absolute;bottom:26px;left:max(22px,calc((100vw - 1180px)/2));font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}
+.scroll-line{width:54px;height:1px;background:#191919;position:relative}.scroll-line:after{content:"";width:6px;height:6px;border-right:1px solid #191919;border-bottom:1px solid #191919;transform:rotate(45deg);position:absolute;right:0;top:-3px}
 
-.manifesto{background:#111;color:white;overflow:hidden}
-.manifesto .panel-inner{display:grid;grid-template-columns:.7fr 1.3fr;gap:50px;align-items:center}
-.manifesto-big{font-size:clamp(52px,7vw,100px);line-height:1.05;letter-spacing:-.06em;font-weight:950;margin:0}
-.manifesto-big em{font-style:normal;color:var(--acid)}
-.manifesto-side{font-size:18px;line-height:1.9;color:#c7c3bc}
-.manifesto-side strong{color:white}
-.marquee{position:absolute;left:0;right:0;bottom:20px;overflow:hidden;white-space:nowrap;color:rgba(255,255,255,.07);font-size:90px;font-weight:950;letter-spacing:-.05em}
-.marquee-track{display:inline-block;animation:marquee 28s linear infinite}
-@keyframes marquee{to{transform:translateX(-50%)}}
+/* ABOUT */
+.about{background:#191919;color:#fff}
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.about h2{font-size:clamp(52px,7vw,96px);line-height:1.02;letter-spacing:-.06em;margin:12px 0}
+.about h2 em{font-style:normal;color:var(--lime)}
+.about-copy{font-size:18px;line-height:1.9;color:#c7c2ba}
+.about-copy strong{color:#fff}
+.triad{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.triad-card{border-radius:24px;padding:22px;min-height:178px;color:#191919}
+.triad-card:nth-child(1){background:var(--peach)}.triad-card:nth-child(2){background:var(--sky)}.triad-card:nth-child(3){background:var(--mint)}
+.triad-card b{display:block;font-size:25px;letter-spacing:-.03em;margin-bottom:9px}.triad-card p{margin:0;font-size:14px;line-height:1.6;color:#4d4944}
 
-.experience{background:linear-gradient(180deg,var(--paper),#efeae1)}
-.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:28px}
-.section-head h2{font-size:clamp(56px,8vw,108px);line-height:.9;letter-spacing:-.065em;margin:8px 0 0}
-.counter{font-size:13px;font-weight:900;color:var(--muted)}
-.exp-stack{display:grid;grid-template-columns:1.5fr .8fr;gap:18px}
-.exp-main,.exp-mini{border-radius:36px;border:1px solid var(--line);overflow:hidden}
-.exp-main{background:var(--acid);padding:36px;min-height:430px;display:flex;flex-direction:column;justify-content:space-between}
-.exp-main h3{font-size:clamp(38px,5vw,62px);letter-spacing:-.05em;line-height:1;margin:14px 0 18px}
-.exp-main p{font-size:17px;line-height:1.75;max-width:760px}
-.exp-actions{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:9px;padding:12px 16px;border-radius:999px;border:1px solid #111;background:#111;color:#fff;font-weight:900;cursor:pointer}
-.btn.light{background:white;color:#111}
+/* EDUCATION */
+.education{background:
+linear-gradient(rgba(25,25,25,.035) 1px,transparent 1px),
+linear-gradient(90deg,rgba(25,25,25,.035) 1px,transparent 1px),
+#fbf8f3;background-size:46px 46px}
+.edu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:32px}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.edu-card{background:var(--card);border:1px solid var(--line);border-radius:30px;padding:24px;box-shadow:var(--shadow);display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:center;min-height:260px;position:relative;overflow:hidden}
+.edu-card:after{content:"";position:absolute;right:-36px;bottom:-60px;width:180px;height:180px;border-radius:50%;background:var(--wash);opacity:.55}
+.edu-visual{height:180px;border-radius:24px;background:var(--wash);border:1px solid rgba(25,25,25,.1);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.edu-monogram{font-size:46px;font-weight:950;letter-spacing:-.07em;position:relative;z-index:2}
+.edu-visual:before{content:"";position:absolute;inset:18px;border:1px dashed rgba(25,25,25,.18);border-radius:18px}
+.edu-card h3{font-size:28px;line-height:1.05;letter-spacing:-.04em;margin:8px 0 10px}.edu-card p{margin:0;color:#514d47;line-height:1.75;font-size:15px}
+.edu-card.notts{--wash:var(--sky)}.edu-card.zjsu{--wash:var(--mint)}
+.edu-meta{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}.mini{font-size:11px;font-weight:850;padding:7px 9px;border-radius:999px;background:#f2eee7;border:1px solid var(--line)}
+
+/* EXPERIENCE */
+.experience{background:linear-gradient(180deg,#f6f2eb,#f0ebe3)}
+.exp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:28px}
+.exp-grid{display:grid;grid-template-columns:1.45fr .85fr;gap:18px}
+.exp-main{background:var(--lime);border:1px solid var(--line);border-radius:34px;padding:34px;min-height:430px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
+.exp-main h3{font-size:clamp(38px,4.8vw,60px);line-height:1;letter-spacing:-.05em;margin:12px 0 18px}.exp-main p{font-size:17px;line-height:1.78;max-width:760px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid #191919;border-radius:999px;background:#191919;color:#fff;font-weight:900;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
 .exp-side{display:grid;gap:18px}
-.exp-mini{padding:26px;background:var(--cream);min-height:206px;cursor:pointer;transition:transform .22s ease,box-shadow .22s ease}
-.exp-mini:hover{transform:translateY(-5px);box-shadow:0 24px 60px rgba(0,0,0,.08)}
-.exp-mini h4{font-size:25px;line-height:1.05;letter-spacing:-.03em;margin:12px 0}.exp-mini p{line-height:1.65;color:#57544f;margin:0}
+.exp-mini{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:25px;min-height:205px;box-shadow:0 12px 40px rgba(0,0,0,.045);cursor:pointer;transition:transform .22s ease}
+.exp-mini:hover{transform:translateY(-5px)}
+.exp-mini h4{font-size:25px;line-height:1.05;letter-spacing:-.035em;margin:10px 0}.exp-mini p{margin:0;color:#56514b;line-height:1.65}
 
-.research{background:var(--lilac)}
-.research-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center}
-.big-number{font-size:clamp(150px,22vw,320px);line-height:.72;letter-spacing:-.09em;font-weight:950}
-.big-number small{display:block;font-size:14px;line-height:1.2;letter-spacing:.08em;text-transform:uppercase;margin-top:32px}
-.research-copy h2{font-size:clamp(44px,6vw,78px);line-height:1.02;letter-spacing:-.055em;margin:14px 0 22px}
-.research-copy p{font-size:18px;line-height:1.8;color:#3d3947}
-.link-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.link-big{display:inline-flex;align-items:center;gap:12px;padding:14px 18px;border:1px solid #111;border-radius:999px;font-weight:950;transition:all .2s ease}
-.link-big:hover{background:#111;color:white;transform:translateY(-2px)}
-.arrow{font-size:18px}
+/* RESEARCH */
+.research{background:var(--lav)}
+.research-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}
+.big-number{font-size:clamp(160px,21vw,310px);line-height:.74;letter-spacing:-.095em;font-weight:950}
+.big-number span{display:block;font-size:12px;line-height:1.3;letter-spacing:.15em;text-transform:uppercase;margin-top:34px}
+.research-copy h2{font-size:clamp(46px,6.3vw,82px);line-height:1.03;letter-spacing:-.055em;margin:12px 0 20px}
+.research-copy p{font-size:18px;line-height:1.85;color:#3f3a47}.link-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.link-pill{display:inline-flex;align-items:center;gap:9px;padding:13px 17px;border:1px solid #191919;border-radius:999px;font-weight:900;transition:all .2s ease}.link-pill:hover{background:#191919;color:#fff;transform:translateY(-2px)}
 
-.project{background:#f5efe8}
-.project-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:center}
-.project-title h2{font-size:clamp(50px,7vw,96px);line-height:.9;letter-spacing:-.06em;margin:12px 0 22px}
-.project-title p{font-size:18px;line-height:1.8;color:#55514b}
-.project-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;perspective:1000px}
-.pc{min-height:390px;border:1px solid var(--line);border-radius:34px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .25s ease}
-.pc:first-child{background:var(--sky);transform:rotate(-2deg)}.pc:last-child{background:var(--pink);transform:rotate(2deg)}
-.pc:hover{transform:rotate(0) translateY(-8px)}
-.pc .num{font-size:72px;font-weight:950;letter-spacing:-.08em}.pc h3{font-size:28px;line-height:1.05;margin:0}.pc p{line-height:1.7;color:#47443f}
+/* PROJECT */
+.project{background:#fffaf4}
+.project-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:42px;align-items:center}
+.project h2{font-size:clamp(54px,7vw,96px);line-height:.9;letter-spacing:-.06em;margin:10px 0 20px}.project p{font-size:18px;line-height:1.8;color:#58534d}
+.project-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.p-card{min-height:360px;padding:28px;border-radius:30px;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
+.p-card:nth-child(1){background:var(--sky)}.p-card:nth-child(2){background:var(--peach)}
+.p-card .num{font-size:68px;font-weight:950;letter-spacing:-.08em}.p-card h3{font-size:27px;line-height:1.05;margin:0}.p-card p{font-size:15px;line-height:1.7;color:#4e4943}
 
-.thinking{background:#111;color:#fff;overflow:hidden}
-.thinking .panel-inner{position:relative;z-index:2}
-.thinking h2{font-size:clamp(48px,8vw,108px);line-height:1.03;letter-spacing:-.06em;margin:20px 0 30px;max-width:1050px}
-.thinking h2 mark{background:var(--acid);padding:0 .08em}
-.thinking p{font-size:19px;line-height:1.9;color:#bbb6ae;max-width:850px}
-.thinking .link-big{border-color:#fff;color:#fff}.thinking .link-big:hover{background:var(--acid);color:#111;border-color:#111}
-.blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.8}.blob.a{width:360px;height:360px;background:rgba(207,255,61,.15);right:-80px;top:90px}.blob.b{width:260px;height:260px;background:rgba(216,204,255,.14);left:-70px;bottom:-30px}
+/* THINKING */
+.thinking{background:#191919;color:#fff}
+.thinking h2{font-size:clamp(48px,7.7vw,104px);line-height:1.03;letter-spacing:-.06em;margin:20px 0 26px;max-width:1060px}
+.thinking mark{background:var(--lime);padding:0 .08em}.thinking p{font-size:19px;line-height:1.9;color:#bfb9b1;max-width:850px}.thinking .link-pill{border-color:#fff;color:#fff}.thinking .link-pill:hover{background:var(--lime);color:#191919;border-color:#191919}
 
-.contact{background:var(--cream)}
-.contact-wrap{text-align:center}
-.contact h2{font-size:clamp(62px,10vw,140px);line-height:.83;letter-spacing:-.075em;margin:20px auto 32px;max-width:1000px}
-.contact p{font-size:19px;color:#5e5a53}
-.contact .link-row{justify-content:center}
+/* CONTACT */
+.contact{background:
+radial-gradient(circle at 20% 20%,rgba(223,240,230,.85),transparent 25%),
+radial-gradient(circle at 82% 72%,rgba(223,242,255,.85),transparent 25%),
+var(--paper)}
+.contact-wrap{text-align:center}.contact h2{font-size:clamp(62px,10vw,138px);line-height:.84;letter-spacing:-.075em;margin:16px auto 30px}.contact p{font-size:19px;color:#5d5851}.contact .link-row{justify-content:center}
 .footer-note{margin-top:70px;font-size:12px;color:var(--muted)}
 
-.drawer-backdrop{position:fixed;inset:0;background:rgba(17,17,17,.42);backdrop-filter:blur(6px);z-index:200;display:none}
-.drawer-backdrop.open{display:block}
-.drawer{position:fixed;z-index:201;right:0;top:0;height:100%;width:min(560px,100%);background:var(--cream);padding:28px;transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.7,.2,1);overflow:auto;border-left:1px solid var(--line)}
-.drawer.open{transform:none}
-.drawer-top{display:flex;justify-content:space-between;align-items:center;position:sticky;top:-28px;background:rgba(255,250,241,.94);backdrop-filter:blur(12px);padding:18px 0 12px;z-index:2}
-.close{width:42px;height:42px;border-radius:50%;border:1px solid #111;background:#111;color:white;cursor:pointer;font-size:20px}
-.drawer h3{font-size:42px;line-height:1;letter-spacing:-.045em;margin:26px 0 16px}
-.drawer p{font-size:16px;line-height:1.85;color:#45423d}
-.drawer ul{padding-left:20px;line-height:1.8;color:#45423d}
-.drawer-tag{display:inline-block;margin-top:12px;padding:8px 10px;border:1px solid #111;border-radius:999px;font-size:12px;font-weight:900}
+/* DRAWER */
+.backdrop{position:fixed;inset:0;background:rgba(25,25,25,.38);backdrop-filter:blur(5px);z-index:200;display:none}.backdrop.open{display:block}
+.drawer{position:fixed;right:0;top:0;height:100%;width:min(560px,100%);background:#fffdf9;z-index:201;padding:28px;transform:translateX(100%);transition:transform .33s cubic-bezier(.2,.7,.2,1);overflow:auto;border-left:1px solid var(--line)}
+.drawer.open{transform:none}.drawer-top{display:flex;justify-content:space-between;align-items:center;position:sticky;top:-28px;background:rgba(255,253,249,.94);backdrop-filter:blur(12px);padding:18px 0 12px;z-index:2}
+.close{width:42px;height:42px;border:1px solid #191919;border-radius:50%;background:#191919;color:#fff;font-size:20px;cursor:pointer}
+.drawer h3{font-size:42px;line-height:1;letter-spacing:-.045em;margin:26px 0 16px}.drawer p,.drawer li{font-size:16px;line-height:1.8;color:#4c4842}.drawer ul{padding-left:20px}
+.drawer-tag{display:inline-block;margin:10px 6px 0 0;padding:8px 10px;border:1px solid #191919;border-radius:999px;font-size:12px;font-weight:900}
 
 @media(max-width:900px){
-  nav .nav-pill{display:none}
-  .panel{min-height:auto;padding-top:100px;padding-bottom:70px}
+  .nav-link{display:none}
+  .panel{min-height:auto;padding-top:100px;padding-bottom:72px}
   .hero{min-height:100svh}
-  .hero-grid,.manifesto .panel-inner,.exp-stack,.research-grid,.project-grid{grid-template-columns:1fr}
-  .photo-stage{min-height:auto;margin-top:34px}.orbit{width:390px;height:390px}
-  .photo-card{max-width:330px}
-  .sticker.one{right:-10px}.sticker.two{left:-10px}
-  .manifesto{min-height:90svh}.manifesto-side{font-size:16px}
-  .exp-main{min-height:380px}.project-cards{grid-template-columns:1fr}.pc{min-height:320px}
-  .big-number{font-size:180px}
+  .hero-grid,.about-grid,.edu-grid,.exp-grid,.research-grid,.project-grid{grid-template-columns:1fr}
+  .photo-frame{max-width:330px;margin-top:26px}.micro-chip.a{right:-8px}.micro-chip.b{left:-8px}
+  .triad{grid-template-columns:1fr}
+  .edu-card{grid-template-columns:120px 1fr}.edu-visual{height:150px}
+  .project-cards{grid-template-columns:1fr}.p-card{min-height:300px}
 }
 @media(max-width:580px){
   .hero h1{font-size:68px}.hero-sub{font-size:18px}
-  .panel{padding-left:18px;padding-right:18px}
-  .section-head h2{font-size:58px}.exp-main{padding:26px}
-  .project-title h2,.research-copy h2{font-size:50px}
-  .thinking h2{font-size:50px}.contact h2{font-size:70px}
-  .orbit{display:none}
+  .section-title{font-size:58px}
+  .edu-card{grid-template-columns:1fr}.edu-visual{height:150px}
+  .big-number{font-size:170px}
+  .research-copy h2,.project h2{font-size:50px}.thinking h2{font-size:50px}.contact h2{font-size:70px}
 }
 </style>
 </head>
@@ -160,64 +164,96 @@ nav{position:fixed;z-index:100;top:18px;left:50%;transform:translateX(-50%);widt
 <nav>
   <a class="brand" href="#home">YUMIAO BAO.</a>
   <div class="nav-right">
-    <a class="nav-pill" href="#experience">Experience</a>
-    <a class="nav-pill" href="#research">Research</a>
-    <a class="nav-pill" href="#thinking">Thinking</a>
-    <a class="nav-cta" href="#contact">Let's connect</a>
+    <a class="nav-link" href="#education">Education</a>
+    <a class="nav-link" href="#experience">Experience</a>
+    <a class="nav-link" href="#research">Research</a>
+    <a class="nav-link" href="#thinking">Thinking</a>
+    <a class="nav-cta" href="#contact">Connect</a>
   </div>
 </nav>
 
-<div class="scroll-shell">
 <section class="panel hero" id="home">
+  <span class="decor-star" style="left:7%;top:22%;color:#b9a7ef">✦</span>
+  <span class="decor-dot" style="right:8%;top:18%;background:#dff36a"></span>
   <div class="panel-inner hero-grid">
-    <div class="hero-copy reveal">
+    <div class="reveal">
       <div class="kicker">2027 Graduate · Global HR</div>
-      <h1><span>HR, but make</span><span class="accent-line">it future.</span></h1>
+      <h1><span>HR, but make</span><span class="future">it future.</span></h1>
       <p class="hero-sub">包雨苗 · Yumiao Bao<br>Nottingham HRMO MSc · Overseas HRBP Intern · AI-HR Explorer</p>
-      <div class="hero-meta">
-        <span class="tag">HRBP</span><span class="tag">AI-HR</span><span class="tag">Organisation</span><span class="tag">Hangzhou · Global HR</span>
-      </div>
+      <div class="hero-tags"><span class="tag">HRBP</span><span class="tag">AI-HR</span><span class="tag">Organisation</span><span class="tag">Hangzhou · Global HR</span></div>
     </div>
-    <div class="photo-stage reveal">
-      <div class="orbit"></div>
-      <div class="photo-card">
+    <div class="photo-wrap reveal">
+      <div class="photo-frame">
         <img src="Yuna.jpg" alt="Yumiao Bao">
-        <div class="sticker one">HRBP × AI-HR</div>
-        <div class="sticker two">Hangzhou · Global HR</div>
+        <div class="photo-caption"><span>Yumiao Bao</span><span>Hangzhou, China</span></div>
+        <span class="micro-chip a">HRBP × AI-HR</span>
+        <span class="micro-chip b">Global mindset</span>
       </div>
     </div>
   </div>
-  <div class="scroll-cue"><span class="mouse"></span> Scroll to explore</div>
+  <div class="scroll-cue"><span>Scroll to explore</span><span class="scroll-line"></span></div>
 </section>
 
-<section class="panel manifesto" id="about">
-  <div class="panel-inner">
-    <div class="reveal"><div class="kicker" style="color:#8f8a82">My North Star</div></div>
+<section class="panel about" id="about">
+  <div class="panel-inner about-grid">
     <div class="reveal">
-      <p class="manifesto-big">懂业务，懂人，<br>也懂一点<em>技术。</em></p>
-      <p class="manifesto-side">我想成为的不是“会用AI的HR”，而是一个<strong>理解业务、理解人，也能判断技术边界</strong>的HR。效率很重要，但当AI开始参与判断，组织还需要回答公平、信任和责任。</p>
+      <div class="kicker" style="color:#8f8981">My North Star</div>
+      <h2>懂业务，懂人，<br>也懂一点<em>技术。</em></h2>
+    </div>
+    <div class="reveal">
+      <p class="about-copy">我希望成为的不是“会用AI的HR”，而是一个<strong>能理解业务、理解人，也能判断技术边界</strong>的HR。效率很重要，但当AI开始参与判断，组织同样需要回答公平、信任和责任。</p>
+      <div class="triad">
+        <div class="triad-card"><b>Business</b><p>理解业务目标和真实人才需求，而不是只做流程。</p></div>
+        <div class="triad-card"><b>People</b><p>关注候选人和员工如何理解、体验和信任组织。</p></div>
+        <div class="triad-card"><b>AI</b><p>把技术当作判断助手，而不是把“为什么”一起外包。</p></div>
+      </div>
     </div>
   </div>
-  <div class="marquee"><div class="marquee-track">BUSINESS × PEOPLE × AI × ORGANISATION × BUSINESS × PEOPLE × AI × ORGANISATION × </div></div>
+</section>
+
+<section class="panel education" id="education">
+  <div class="panel-inner">
+    <div class="edu-head reveal">
+      <div><div class="kicker">Education · Two places, one journey</div><h2 class="section-title">Background</h2></div>
+      <div class="soft-note">Simple, but part of the story.</div>
+    </div>
+    <div class="edu-grid">
+      <article class="edu-card zjsu reveal">
+        <div class="edu-visual"><div class="edu-monogram">ZJSU</div></div>
+        <div>
+          <div class="kicker">2020.10 — 2024.06</div>
+          <h3>Zhejiang Shuren University</h3>
+          <p>公共事业管理（人力资源方向）<br>在杭州完成本科阶段学习，建立HR与管理基础。</p>
+          <div class="edu-meta"><span class="mini">HR Track</span><span class="mini">Hangzhou</span></div>
+        </div>
+      </article>
+      <article class="edu-card notts reveal">
+        <div class="edu-visual"><div class="edu-monogram">UoN</div></div>
+        <div>
+          <div class="kicker">2025.09 — 2026.12</div>
+          <h3>University of Nottingham</h3>
+          <p>MSc Human Resource Management and Organisation<br>CIPD-accredited · Top 5% · Dissertation on AI-assisted recruitment.</p>
+          <div class="edu-meta"><span class="mini">CIPD</span><span class="mini">Top 5%</span><span class="mini">UK</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
 </section>
 
 <section class="panel experience" id="experience">
   <div class="panel-inner">
-    <div class="section-head reveal">
-      <div><div class="kicker">What I am doing now</div><h2>Experience</h2></div>
-      <div class="counter">01 / 05</div>
-    </div>
-    <div class="exp-stack">
+    <div class="exp-head reveal"><div><div class="kicker">What I am doing now</div><h2 class="section-title">Experience</h2></div><div class="soft-note">Click a role for details ↗</div></div>
+    <div class="exp-grid">
       <article class="exp-main reveal">
         <div>
           <div class="kicker">2026.08 — Present · EZVIZ</div>
           <h3>Overseas HRBP Intern</h3>
           <p>对接海外业务多部门人才需求，参与岗位需求澄清、人才画像与筛选标准制定；独立推进实习生岗位招聘全流程，并在真实招聘中使用 AI Skill 与 RPA 做批量筛选、自动触达和结果汇总。</p>
         </div>
-        <div class="exp-actions"><button class="btn" data-role="ezviz">View details →</button><span class="tag">AI + RPA in practice</span></div>
+        <div><button class="btn" data-role="ezviz">View details →</button></div>
       </article>
       <div class="exp-side">
-        <article class="exp-mini reveal" data-role="picc"><div class="kicker">2024.07 — 2024.11</div><h4>PICC · International Department</h4><p>约300份买方资信分析与信用限额材料。</p></article>
+        <article class="exp-mini reveal" data-role="picc"><div class="kicker">2024.07 — 2024.11</div><h4>PICC · International Department</h4><p>约300份买方资信分析与信用限额材料，训练商业分析与风险判断。</p></article>
         <article class="exp-mini reveal" data-role="sanbian"><div class="kicker">2023.06 — 2023.08</div><h4>Sanbian Technology · HR Assistant</h4><p>180+份简历筛选，60+场面试安排。</p></article>
       </div>
     </div>
@@ -226,42 +262,36 @@ nav{position:fixed;z-index:100;top:18px;left:50%;transform:translateX(-50%);widt
 
 <section class="panel research" id="research">
   <div class="panel-inner research-grid">
-    <div class="reveal">
-      <div class="big-number">296<small>Valid responses · MSc dissertation</small></div>
-    </div>
+    <div class="reveal"><div class="big-number">296<span>Valid responses · MSc dissertation</span></div></div>
     <div class="research-copy reveal">
       <div class="kicker">Academic Research · University of Nottingham</div>
       <h2>当AI参与筛选，候选人为什么愿意相信这个过程？</h2>
       <p>我的硕士论文研究 AI 辅助简历筛选中的算法解释度，如何通过程序公平感与初始雇主诚信感知，进一步影响候选人的求职意愿。</p>
-      <div class="link-row">
-        <a class="link-big" href="research.html">查看研究详情 <span class="arrow">↗</span></a>
-        <a class="link-big" href="#thinking">See what it changed in my thinking ↓</a>
-      </div>
+      <div class="link-row"><a class="link-pill" href="research.html">查看研究详情 ↗</a><a class="link-pill" href="#thinking">See the thinking ↓</a></div>
     </div>
   </div>
 </section>
 
 <section class="panel project" id="project">
   <div class="panel-inner project-grid">
-    <div class="project-title reveal">
+    <div class="reveal">
       <div class="kicker">Corporate Consulting · UK</div>
       <h2>PolicyCON</h2>
       <p>作为 Team Leader，带领5人团队为英国初创企业开展智能证件保护产品咨询项目，完成客户需求拆解、研究设计、团队协同与英文交付。</p>
     </div>
     <div class="project-cards">
-      <article class="pc reveal"><div><div class="kicker">Team</div><div class="num">5</div></div><div><h3>Cross-cultural team</h3><p>负责客户需求澄清、研究框架拆解、任务分工和进度管理。</p></div></article>
-      <article class="pc reveal"><div><div class="kicker">Delivery</div><div class="num">51</div></div><div><h3>Page English report</h3><p>通过问卷、公开数据与竞品分析，将结论转化为目标用户、渠道试点与产品设计建议。</p></div></article>
+      <article class="p-card reveal"><div><div class="kicker">Team</div><div class="num">5</div></div><div><h3>Cross-cultural team</h3><p>负责客户需求澄清、研究框架拆解、任务分工和进度管理。</p></div></article>
+      <article class="p-card reveal"><div><div class="kicker">Delivery</div><div class="num">51</div></div><div><h3>Page English report</h3><p>通过问卷、公开数据与竞品分析，将结论转化为目标用户、渠道试点与产品设计建议。</p></div></article>
     </div>
   </div>
 </section>
 
 <section class="panel thinking" id="thinking">
-  <div class="blob a"></div><div class="blob b"></div>
   <div class="panel-inner reveal">
-    <div class="kicker" style="color:#99948d">AI × Organisation</div>
+    <div class="kicker" style="color:#9f9990">AI × Organisation</div>
     <h2>AI可以帮助组织做出越来越多判断，<br>但组织不能把<mark>“为什么”</mark>也一起外包给AI。</h2>
     <p>论文让我从候选人视角理解AI判断如何影响公平感和信任；实习让我看到AI筛选在真实工作中的边界。于是我开始更关心：当判断由“人 + AI”共同完成时，决策权、解释权和责任该如何重新设计？</p>
-    <div class="link-row"><a class="link-big" href="thinking.html">阅读全文 <span class="arrow">↗</span></a></div>
+    <div class="link-row"><a class="link-pill" href="thinking.html">阅读全文 ↗</a></div>
   </div>
 </section>
 
@@ -270,68 +300,35 @@ nav{position:fixed;z-index:100;top:18px;left:50%;transform:translateX(-50%);widt
     <div class="kicker">Preferred base · Hangzhou, China</div>
     <h2>Build better<br>organisations.</h2>
     <p>Open to Global HR · HRBP · AI-HR opportunities</p>
-    <div class="link-row">
-      <a class="link-big" href="mailto:smxbym@163.com">Email me ↗</a>
-      <a class="link-big" href="research.html">Research ↗</a>
-      <a class="link-big" href="thinking.html">Writing ↗</a>
-    </div>
-    <div class="footer-note">Yumiao Bao · 2026 · Designed as a living portfolio, not a PDF.</div>
+    <div class="link-row"><a class="link-pill" href="mailto:smxbym@163.com">Email me ↗</a><a class="link-pill" href="research.html">Research ↗</a><a class="link-pill" href="thinking.html">Writing ↗</a></div>
+    <div class="footer-note">Yumiao Bao · 2026</div>
   </div>
 </section>
-</div>
 
-<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<div class="backdrop" id="backdrop"></div>
 <aside class="drawer" id="drawer" aria-hidden="true">
-  <div class="drawer-top"><div class="kicker">Experience detail</div><button class="close" id="closeDrawer" aria-label="Close">×</button></div>
+  <div class="drawer-top"><div class="kicker">Experience detail</div><button class="close" id="closeDrawer">×</button></div>
   <div id="drawerContent"></div>
 </aside>
 
 <script>
 const progress=document.getElementById('progress');
-const updateProgress=()=>{const h=document.documentElement.scrollHeight-innerHeight;progress.style.width=(h?scrollY/h*100:0)+'%'};
+function updateProgress(){const h=document.documentElement.scrollHeight-innerHeight;progress.style.width=(h?scrollY/h*100:0)+'%'}
 addEventListener('scroll',updateProgress,{passive:true});updateProgress();
 
-const io=new IntersectionObserver((entries)=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.14});
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-const drawer=document.getElementById('drawer');
-const backdrop=document.getElementById('drawerBackdrop');
-const content=document.getElementById('drawerContent');
+const drawer=document.getElementById('drawer'),backdrop=document.getElementById('backdrop'),content=document.getElementById('drawerContent');
 const roleData={
-  ezviz:{
-    title:'Overseas HRBP Intern',
-    meta:'EZVIZ · 2026.08 — Present',
-    body:'<p>目前在海外HRBP团队中，我主要从真实业务需求出发参与招聘与人才支持，而不只是做流程执行。</p><ul><li>对接海外业务多部门招聘需求，参与需求澄清、人才画像和筛选标准制定。</li><li>独立推进实习生岗位招聘全流程，并支持候选人评估与招聘决策。</li><li>使用 AI Skill 与 RPA 进行简历批量筛选、候选人自动触达及结果汇总。</li><li>根据真实招聘结果回看AI匹配偏差，持续调整筛选逻辑。</li></ul><span class="drawer-tag">Overseas HRBP</span> <span class="drawer-tag">AI-HR</span>'
-  },
-  picc:{
-    title:'International Department',
-    meta:'PICC · 2024.07 — 2024.11',
-    body:'<p>在国际业务部门完成约300份买方资信分析与信用限额申请材料，提取企业背景、关联关系、财务与风险信息，支持业务判断。</p><p>这段经历训练了我对业务数据、风险与商业逻辑的敏感度，也让我更重视HRBP需要具备的业务理解能力。</p><span class="drawer-tag">Business Analysis</span>'
-  },
-  sanbian:{
-    title:'HR Assistant',
-    meta:'Sanbian Technology · 2023.06 — 2023.08',
-    body:'<p>参与社会招聘、新员工入职与培训支持，累计筛选简历180+份、安排面试60+场。</p><p>这是我较早接触企业HR实务的一段经历，也让我从流程端开始理解招聘与人才匹配。</p><span class="drawer-tag">Recruitment</span>'
-  }
+ezviz:{title:'Overseas HRBP Intern',meta:'EZVIZ · 2026.08 — Present',body:'<p>目前在海外HRBP团队中，我主要从真实业务需求出发参与招聘与人才支持，而不只是做流程执行。</p><ul><li>对接海外业务多部门招聘需求，参与需求澄清、人才画像和筛选标准制定。</li><li>独立推进实习生岗位招聘全流程，并支持候选人评估与招聘决策。</li><li>使用 AI Skill 与 RPA 进行简历批量筛选、候选人自动触达及结果汇总。</li><li>根据真实招聘结果回看AI匹配偏差，持续调整筛选逻辑。</li></ul><span class="drawer-tag">Overseas HRBP</span><span class="drawer-tag">AI-HR</span>'},
+picc:{title:'International Department',meta:'PICC · 2024.07 — 2024.11',body:'<p>在国际业务部门完成约300份买方资信分析与信用限额申请材料，提取企业背景、关联关系、财务与风险信息，支持业务判断。</p><p>这段经历训练了我对业务数据、风险与商业逻辑的敏感度。</p><span class="drawer-tag">Business Analysis</span>'},
+sanbian:{title:'HR Assistant',meta:'Sanbian Technology · 2023.06 — 2023.08',body:'<p>参与社会招聘、新员工入职与培训支持，累计筛选简历180+份、安排面试60+场。</p><span class="drawer-tag">Recruitment</span>'}
 };
-function openDrawer(key){
-  const d=roleData[key];if(!d)return;
-  content.innerHTML='<div class="kicker">'+d.meta+'</div><h3>'+d.title+'</h3>'+d.body;
-  drawer.classList.add('open');backdrop.classList.add('open');drawer.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
-}
+function openDrawer(key){const d=roleData[key];if(!d)return;content.innerHTML='<div class="kicker">'+d.meta+'</div><h3>'+d.title+'</h3>'+d.body;drawer.classList.add('open');backdrop.classList.add('open');drawer.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
 function closeDrawer(){drawer.classList.remove('open');backdrop.classList.remove('open');drawer.setAttribute('aria-hidden','true');document.body.style.overflow=''}
 document.querySelectorAll('[data-role]').forEach(el=>el.addEventListener('click',()=>openDrawer(el.dataset.role)));
-document.getElementById('closeDrawer').addEventListener('click',closeDrawer);
-backdrop.addEventListener('click',closeDrawer);
-addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer()});
-
-const photo=document.querySelector('.photo-card');
-addEventListener('mousemove',e=>{
-  if(innerWidth<900)return;
-  const x=(e.clientX/innerWidth-.5)*4,y=(e.clientY/innerHeight-.5)*-4;
-  photo.style.transform='rotate(2.5deg) rotateY('+x+'deg) rotateX('+y+'deg)';
-});
-addEventListener('mouseleave',()=>photo.style.transform='rotate(2.5deg)');
+document.getElementById('closeDrawer').addEventListener('click',closeDrawer);backdrop.addEventListener('click',closeDrawer);addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer()});
 </script>
 </body>
 </html>
