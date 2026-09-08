@@ -29,6 +29,21 @@ h1{font-size:clamp(68px,10vw,140px);line-height:.82;letter-spacing:-.075em;margi
 .quote{font-size:clamp(34px,5vw,64px);line-height:1.14;letter-spacing:-.045em;font-weight:900;margin:0}.quote mark{background:var(--acid);padding:0 .08em}
 .footer{padding:70px 0 90px}.footerbox{border-radius:42px;background:#111;color:#fff;padding:42px;display:grid;grid-template-columns:1.4fr .6fr;gap:28px;align-items:end}.footerbox h2{font-size:clamp(46px,7vw,92px);margin:0;letter-spacing:-.06em}.btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.btn{padding:13px 16px;border-radius:999px;background:var(--acid);color:#111;font-weight:900}.btn.secondary{background:#fff;color:#111}
 .small{font-size:13px;color:#a7a49e;margin-top:18px}
+.interactive-card{transition:transform .25s ease,box-shadow .25s ease}.interactive-card:hover{transform:translateY(-5px);box-shadow:0 26px 60px rgba(0,0,0,.09)}
+.action-btn{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:12px 16px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;font:inherit;font-weight:900;cursor:pointer;transition:all .2s ease}
+.action-btn:hover{background:var(--acid);color:#111;border-color:#111;transform:translateY(-1px)}
+.action-btn .arrow{transition:transform .2s ease}.action-btn:hover .arrow{transform:translateX(4px)}
+.modal-backdrop{position:fixed;inset:0;z-index:100;background:rgba(17,17,17,.62);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:24px}
+.modal-backdrop.open{display:flex}
+.modal-panel{width:min(900px,100%);max-height:min(86vh,900px);overflow:auto;background:#fffdf8;border:1px solid rgba(255,255,255,.25);border-radius:34px;box-shadow:0 34px 100px rgba(0,0,0,.3);transform:translateY(14px) scale(.985);opacity:0;transition:transform .22s ease,opacity .22s ease}
+.modal-backdrop.open .modal-panel{transform:translateY(0) scale(1);opacity:1}
+.modal-top{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:22px 26px;background:rgba(255,253,248,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.modal-top .meta{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:900;color:var(--muted)}
+.close-btn{width:42px;height:42px;border-radius:50%;border:1px solid #111;background:#111;color:#fff;font-size:20px;cursor:pointer}
+.article{padding:34px 44px 48px}.article h3{font-size:clamp(34px,5vw,56px);line-height:1.04;letter-spacing:-.05em;margin:0 0 24px}.article .dek{font-size:18px;line-height:1.7;color:#55514b;margin-bottom:30px}.article p{font-size:17px;line-height:1.95;color:#292824;margin:0 0 20px}.article strong{font-weight:950}.article blockquote{margin:30px 0;padding:24px 26px;background:#111;color:#fff;border-radius:24px;font-size:24px;line-height:1.5;font-weight:900}.article .highlight{background:var(--acid);padding:0 .12em;color:#111}
+.research-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}.fact{padding:18px;border-radius:20px;background:#f0ebe3}.fact b{display:block;font-size:28px;letter-spacing:-.04em}.fact span{font-size:12px;color:#6c6a65}
+body.modal-open{overflow:hidden}
+
 @media(max-width:860px){.navlinks{display:none}.hero{grid-template-columns:1fr;padding-top:54px}.photo-shell{max-width:360px;margin:0 auto;justify-self:center}.grid{grid-template-columns:1fr}.span7,.span5,.span6,.span12{grid-column:auto}.north{padding:34px;min-height:330px}.role{grid-template-columns:1fr;gap:8px}.footerbox{grid-template-columns:1fr}.btns{justify-content:flex-start}.photo-shell:before{right:-8px}.location{left:-8px}}
 </style>
 </head>
@@ -64,7 +79,7 @@ h1{font-size:clamp(68px,10vw,140px);line-height:.82;letter-spacing:-.075em;margi
 <section class="section" id="research">
 <div class="section-head"><div><div class="kicker">Academic research · not a side project</div><h2>Research</h2></div></div>
 <div class="grid">
-<article class="card span7 lilac"><div class="meta">MSc Dissertation · University of Nottingham</div><h3>AI辅助简历筛选中的算法解释度，如何影响候选人的求职意愿？</h3><p>研究算法解释度如何通过程序公平感与初始雇主诚信感知，进一步影响候选人的 Job Pursuit Intention。采用组间实验设计，最终获得296份有效样本。</p><div class="tags"><span class="tag">Algorithmic Explainability</span><span class="tag">Procedural Fairness</span><span class="tag">Employer Integrity</span></div></article>
+<article class="card span7 lilac interactive-card"><div class="meta">MSc Dissertation · University of Nottingham</div><h3>AI辅助简历筛选中的算法解释度，如何影响候选人的求职意愿？</h3><p>研究算法解释度如何通过程序公平感与初始雇主诚信感知，进一步影响候选人的 Job Pursuit Intention。采用组间实验设计，最终获得296份有效样本。</p><div class="tags"><span class="tag">Algorithmic Explainability</span><span class="tag">Procedural Fairness</span><span class="tag">Employer Integrity</span></div><button class="action-btn" data-open="researchModal">查看研究详情 <span class="arrow">→</span></button></article>
 <article class="card span5 pink"><div class="meta">Key lens</div><div class="stat">296</div><p>份有效样本。研究让我越来越关注：当AI参与“判断人”时，效率之外，组织如何重新设计公平、信任与责任边界。</p></article>
 <article class="card span12"><div class="meta">Selected finding</div><h3>“解释更多”本身不是答案。</h3><p>更充分的流程解释可以提升候选人的程序公平感，而程序公平感又与更高的雇主诚信感知和求职意愿相关。对我来说，这意味着AI招聘真正需要设计的，不只是模型准确率，也是候选人如何理解这个过程。</p></article>
 </div>
@@ -80,9 +95,10 @@ h1{font-size:clamp(68px,10vw,140px);line-height:.82;letter-spacing:-.075em;margi
 
 <section class="section" id="thinking">
 <div class="section-head"><div><div class="kicker">AI × Organisation</div><h2>Thinking</h2></div></div>
-<div class="card span12" style="background:#111;color:#fff;padding:42px">
+<div class="card span12 interactive-card" style="background:#111;color:#fff;padding:42px">
 <p class="quote">AI可以帮助组织做出越来越多判断，<br>但组织不能把<mark>“为什么”</mark>也一起外包给AI。</p>
 <p style="color:#bcb8b1;max-width:800px;margin-top:28px;line-height:1.8">论文让我从候选人视角理解AI判断如何影响公平感和信任；实习则让我第一次看到AI筛选在真实工作里的边界。于是我开始更关心一个组织问题：当判断由“人 + AI”共同完成时，决策权、解释权和责任应该如何重新设计？</p>
+<button class="action-btn" data-open="thinkingModal" style="color:#fff">阅读全文 <span class="arrow">→</span></button>
 </div>
 </section>
 
@@ -98,4 +114,73 @@ h1{font-size:clamp(68px,10vw,140px);line-height:.82;letter-spacing:-.075em;margi
 <footer class="footer wrap" id="contact">
 <div class="footerbox"><div><div class="kicker" style="color:#aaa">Let's connect</div><h2>Build better<br>organisations.</h2><div class="small">Preferred base: Hangzhou, China · Open to global HR / HRBP / AI-HR opportunities</div></div><div class="btns"><a class="btn" href="mailto:smxbym@163.com">Email me</a><a class="btn secondary" href="mailto:smxbym@163.com?subject=Resume%20Request">Request résumé</a></div></div>
 </footer>
+
+<div class="modal-backdrop" id="thinkingModal" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="thinkingTitle">
+    <div class="modal-top"><div class="meta">AI × Organisation · Personal Essay</div><button class="close-btn" data-close aria-label="关闭">×</button></div>
+    <article class="article">
+      <h3 id="thinkingTitle">AI开始替人做判断后，组织最缺的可能不是效率</h3>
+      <p class="dek">从硕士论文到海外HRBP实习，我越来越在意的不是“AI还能替人做什么”，而是：当AI参与判断后，人和组织还应该对什么负责？</p>
+      <p>我对AI和人的关系产生兴趣，最早来自硕士论文。我的研究聚焦AI辅助简历筛选中的“算法解释度”：如果企业更清楚地告诉候选人，AI会读取哪些信息、产生什么建议，以及最终由谁做决定，候选人的感受会不会不同？</p>
+      <p>最终，我获得了296份有效样本。研究发现，更充分的流程解释会提高候选人的程序公平感，而程序公平感又与更高的雇主诚信感知和求职意愿相关。</p>
+      <blockquote>被AI判断的人，真正关心的往往不是模型参数，而是：AI看了我什么？它说了算吗？如果它判断错了，谁来纠正？</blockquote>
+      <p>后来开始海外HRBP实习，这些问题突然从论文变得很具体。我在工作中使用AI Skill和RPA做简历筛选、候选人触达和结果汇总。AI确实很快，但真实工作里，它并不是“给出结果，然后照着执行”。有时系统认为高度匹配的人，结合岗位重新看未必合适；有些候选人的经历没有按标准方式表达，也可能被低估。</p>
+      <p>于是工作更像是：<strong>AI先给一个判断，人再判断这个判断靠不靠谱。</strong></p>
+      <p>这让我开始意识到，AI改变的可能不只是某个岗位的效率，而是组织内部“谁有权做判断”这件事。今天是简历筛选，以后可能是绩效评估、人才盘点、晋升推荐、HC规划，甚至管理决策。</p>
+      <p>当越来越多判断由“人 + AI”共同完成，一个更现实的问题会出现：结果出了问题，到底谁负责？是算法、使用算法的人、设计规则的人，还是最后按下确认键的管理者？</p>
+      <p>所以我越来越觉得，人机协作不能只设计工作流，还需要重新设计三件事：<strong>决策权、解释权和责任。</strong></p>
+      <p>论文也让我重新理解了“透明”。透明不是把复杂的模型原理全部展示出来。对普通人而言，更有意义的是知道：系统用了什么信息、输出什么结果、人如何使用结果，以及最终决定权在哪里。</p>
+      <blockquote>AI可以帮助组织做出越来越多判断，但组织不能把<span class="highlight">“为什么”</span>也一起外包给AI。</blockquote>
+      <p>未来AI会替代哪些工作，我没有完整答案。但我越来越相信，真正有意思的问题可能不是“AI还能替人做什么”，而是<strong>“当AI做得越来越多以后，人应该对什么负责？”</strong></p>
+      <p>对我来说，这不是离HR很远的技术问题。恰恰相反，当技术开始改变“工作由谁完成、决定由谁做、责任由谁承担”时，HR可能正处在这场变化最靠近人的位置。</p>
+    </article>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="researchModal" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="researchTitle">
+    <div class="modal-top"><div class="meta">MSc Dissertation · University of Nottingham</div><button class="close-btn" data-close aria-label="关闭">×</button></div>
+    <article class="article">
+      <h3 id="researchTitle">The Effect of Algorithmic Explainability on Job Pursuit Intention in AI-Assisted CV Screening</h3>
+      <p class="dek">研究AI辅助简历筛选中，候选人看到不同程度的流程解释后，程序公平感、雇主诚信感知与求职意愿会如何变化。</p>
+      <div class="research-facts"><div class="fact"><b>296</b><span>有效样本</span></div><div class="fact"><b>2</b><span>高 / 低解释度情境</span></div><div class="fact"><b>Model 6</b><span>链式中介分析</span></div></div>
+      <p><strong>研究设计：</strong>采用组间实验情境设计。两组都处于同一个AI辅助简历筛选场景，区别在于企业向候选人提供的流程信息详细程度。高解释度情境会进一步说明AI读取哪些简历信息、产生什么筛选建议，以及人类招聘者如何参与最终判断。</p>
+      <p><strong>我关注的问题：</strong>更清楚的AI流程解释，是否会让候选人觉得程序更公平？这种公平感是否又会影响他们对雇主诚信的判断，并进一步影响继续求职的意愿？</p>
+      <p><strong>核心发现：</strong>更高的算法解释度与更高的程序公平感相关；程序公平感又与更强的初始雇主诚信感知相关，而雇主诚信感知与求职意愿正相关。研究结果支持“解释度 → 程序公平 → 雇主诚信 → 求职意愿”的链式路径。</p>
+      <blockquote>“解释更多”并不等于“AI更公平”。解释的价值，是让候选人有更多信息去判断这个过程是否值得信任。</blockquote>
+      <p><strong>对实践的启发：</strong>企业不一定需要向候选人展示复杂的模型原理。更有意义的沟通，可能是清楚说明AI处理什么信息、产生什么建议、人如何使用建议，以及最终决策权在谁手里。</p>
+      <p><strong>这项研究为什么对我重要：</strong>它让我开始把AI-HR看成一个“组织信任与责任设计”的问题，而不只是一个提效工具。这也成为我后来在实习中观察AI筛选偏差、人工判断边界和候选人体验的起点。</p>
+    </article>
+  </div>
+</div>
+
+<script>
+const openModal = id => {
+  const modal = document.getElementById(id);
+  if(!modal) return;
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
+  document.body.classList.add('modal-open');
+  const close = modal.querySelector('[data-close]');
+  if(close) setTimeout(()=>close.focus(),50);
+};
+const closeModal = modal => {
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+  document.body.classList.remove('modal-open');
+};
+document.querySelectorAll('[data-open]').forEach(btn=>{
+  btn.addEventListener('click',()=>openModal(btn.dataset.open));
+});
+document.querySelectorAll('.modal-backdrop').forEach(modal=>{
+  modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(modal); });
+  modal.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>closeModal(modal)));
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    const modal=document.querySelector('.modal-backdrop.open');
+    if(modal) closeModal(modal);
+  }
+});
+</script>
 </body></html>
